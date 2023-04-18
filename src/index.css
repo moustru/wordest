@@ -1,0 +1,32 @@
+#answer {
+  height: 68px;
+  padding: 10px;
+}
+
+#stats {
+  display: none;
+  text-align: center;
+}
+
+#disclaimer {
+  display: none !important;
+}
+
+.letter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  font-weight: 700;
+  color: #fff;
+  user-select: none;
+  cursor: pointer;
+}
+
+.inline-letters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

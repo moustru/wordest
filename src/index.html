@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Wordest</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+      integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container py-5">
+      <div id="disclaimer" class="d-flex flex-column align-items-center">
+        <h3>Прошлый сеанс тренировки не был закончен. Хотите продолжить?</h3>
+        <div>
+          <button id="js_btn_continue" class="btn btn-success">Да</button>
+          <button id="js_btn_reset" class="btn btn-danger">Нет</button>
+        </div>
+      </div>
+
+      <div id="scenario" class="d-flex flex-column align-items-center w-100 text-center mx-auto">
+        <h2 class="mb-5">English Vocabulary Trainer</h2>
+
+        <p class="lead mb-1">Form a valid English word using the given letters</p>
+        <p class="mb-5">
+          Question <span id="current_question"></span> of
+          <span id="total_questions"></span>
+        </p>
+
+        <div>
+          <div id="answer" class="bg-light mb-3 inline-letters" style="border-radius: 6px"></div>
+          <div id="letters" class="inline-letters"></div>
+        </div>
+      </div>
+
+      <div id="stats" class="d-flex flex-column align-items-center">
+        <h1>Поздравляем!</h1>
+        <h3>Ваши результаты:</h3>
+        <div class="mb-3">Введено слов без ошибок: <span id="without_mistakes"></span></div>
+        <div class="mb-3">Суммарное кол-во ошибок: <span id="mistakes_count"></span></div>
+        <div class="mb-3">Слово с самым большим кол-вом ошибок: <span id="most_errors"></span></div>
+      </div>
+    </div>
+  </body>
+</html>
