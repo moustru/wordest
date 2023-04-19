@@ -2,6 +2,12 @@ import WORDS from "@/data/words";
 import type { WordObject } from "@/types/Word";
 import { shuffleLetters } from "./letters";
 
+/**
+ * @exports
+ * Функция набора случайных слов из БД
+ *
+ * @returns Массив набранных слов
+ */
 export function setWordsArray(): WordObject[] {
   const wordArray: WordObject[] = [];
 
@@ -12,7 +18,9 @@ export function setWordsArray(): WordObject[] {
       wordArray.push({
         word: WORDS[relatedIndex],
         shuffled: shuffleLetters(WORDS[relatedIndex]),
-        mistakes: 0
+        currentLetter: 0,
+        mistakes: 0,
+        isFinished: false
       });
     }
   }

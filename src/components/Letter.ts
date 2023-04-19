@@ -1,3 +1,7 @@
+/**
+ * @class
+ * Класс-компонент сущности буквы в слове. Необходим для UI
+ */
 class Letter {
   letter: string;
 
@@ -5,7 +9,13 @@ class Letter {
     this.letter = letter;
   }
 
-  render(bgClass?: string) {
+  /**
+   * Функция запуска рендера
+   *
+   * @param bgClass Опциональный класс, который заменяет bg-primary
+   * @returns HTML-элемент буквы
+   */
+  render(bgClass?: string): HTMLDivElement {
     const letterDiv = document.createElement("div");
 
     letterDiv.classList.add("letter");

@@ -1,4 +1,4 @@
-import type StorageObject from "@/types/Storage";
+// import type StorageObject from "@/types/Storage";
 
 // class TrainerStorage {
 //   initStorage(store: StorageObject) {

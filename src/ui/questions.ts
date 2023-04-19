@@ -1,5 +1,5 @@
 import AppStore from "@/store";
-import { renderAnswerBlock, renderLetters } from "./letters";
+import { renderAnswerBlock, renderLettersBlock } from "./letters";
 import { showStats } from "./additionalScreens";
 import delay from "@/helpers/delay";
 
@@ -7,11 +7,24 @@ const answerBlock = document.getElementById("answer");
 const currentQuestion = document.getElementById("current_question");
 const totalQuestions = document.getElementById("total_questions");
 
+/**
+ * Рендеринг счетчика вопросов
+ *
+ * @param current Номер текущего вопроса
+ * @param total Кол-во вопросов
+ */
 function renderQuestionPanel(current: number, total: number) {
   currentQuestion!.textContent = String(++current);
   totalQuestions!.textContent = String(++total);
 }
 
+/**
+ * Рендеринг счетчика вопросов и блока с буквами (без связи с AppStore, абсолютный UI)
+ *
+ * @param lettersArray Массив букв
+ * @param currentQuestion Номер текущего вопроса
+ * @param totalQuestion Кол-во вопросов
+ */
 function renderQuestion({
   lettersArray,
   currentQuestion,
@@ -24,9 +37,13 @@ function renderQuestion({
   answerBlock!.innerHTML = "";
 
   renderQuestionPanel(currentQuestion, totalQuestion);
-  renderLetters(lettersArray);
+  renderLettersBlock(lettersArray);
 }
 
+/**
+ * @exports
+ * Загрузка вопроса (рендеринг + манипуляция данных)
+ */
 export function loadQuestion() {
   AppStore.setLetterTotalCounter(AppStore.getCurrentWord.word.length);
 
@@ -39,7 +56,12 @@ export function loadQuestion() {
   renderAnswerBlock();
 }
 
+/**
+ * @exports
+ * Обработка конца вопроса
+ */
 export function finishQuestion() {
+  AppStore.finishQuestion();
   AppStore.nextQuestion();
 
   const currentQuestion = AppStore.getQuestions.current;
